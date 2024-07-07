@@ -7,12 +7,10 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatStepperModule } from '@angular/material/stepper';
-import { FormBuilder, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { provideRouter, Router, RouterLink, TitleStrategy } from '@angular/router';
+
 
 //service
 import { CatsService } from "../../service/cats.service";
@@ -21,8 +19,7 @@ import { CatsService } from "../../service/cats.service";
 @Component({
   selector: 'app-table-list-cats',
   standalone: true,
-  imports: [ MatButtonModule, MatToolbarModule, MatTableModule, MatPaginatorModule, MatDialogModule  , MatFormFieldModule, MatSelectModule, MatInputModule, MatIconModule,  MatDialogModule, MatButtonModule, MatToolbarModule, MatStepperModule,FormsModule,MatCheckboxModule,
-    ReactiveFormsModule,],
+  imports: [ MatButtonModule, MatToolbarModule, MatTableModule, MatPaginatorModule, MatDialogModule  , MatFormFieldModule, MatSelectModule, MatInputModule, MatIconModule,  MatDialogModule, MatButtonModule, MatToolbarModule, MatStepperModule,MatCheckboxModule],
   templateUrl: './table-list-cats.component.html',
   styleUrl: './table-list-cats.component.scss'
 })
@@ -45,7 +42,7 @@ export class TableListCatsComponent {
 
   getListCats(){ this.catsService.listCats({ }).subscribe((p) => {
         console.log(p);
-        this.getListCatsALL = p
+        this.getListCatsALL = p.data
         this.setObjectDataSource(this.getListCatsALL)
       },(e) => {
         console.log(e);
