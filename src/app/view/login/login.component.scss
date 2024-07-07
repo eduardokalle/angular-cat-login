@@ -1,0 +1,91 @@
+$tablet-width: 768px;
+$desktop-width: 1024px;
+@mixin mobile {
+  @media (max-width: #{$tablet-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+#main{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bg{
+    position: relative;
+  /* The image used */
+  background-image: url("../../../assets/backlogin.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: auto;
+}
+
+.login-form{
+    width: 350px;
+    margin: 0 auto;
+    padding: 30px 30px;
+    background-color: rgba($color:#151038, $alpha: 0.9);
+    border-radius: 5%;
+      
+}
+
+
+a:link, a:visited, a:active {
+    text-decoration:none;
+}
+
+.forgotPass{
+    margin-top: 10px;
+    text-align: center;
+}
+
+.title{
+  color: white;
+}
+
+.submit{
+  width: 100%;
+}
+
+.field{
+  width: 100%;
+}
+
+::ng-deep.mdc-text-field--filled:not(.mdc-text-field--disabled){
+  background-color: transparent !important;
+}
+
+::ng-deep.mdc-text-field--filled-underline:not(.mdc-text-field--disabled){
+  background-color: red !important;
+}
+
+::ng-deep.mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-text-field__input {
+  color: white !important;
+}
+
+::ng-deep.mat-mdc-form-field:not(.mat-form-field-disabled) .mat-mdc-floating-label.mdc-floating-label {
+  cursor: inherit;
+  color: white !important;
+}
+
+

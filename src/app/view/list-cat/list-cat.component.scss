@@ -1,0 +1,40 @@
+.content {
+   position: relative;
+   margin-top: 10%;
+   margin: 5%;
+ }
+
+.table {
+  width: 100%;
+}
+
+.md-button.md-cornered {
+  border-radius: 0;
+}
+
+.conten-btn{
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
+}
+
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-inner {
+  display: flex;
+  overflow: hidden;
+  width: 400px; /* Ajusta el ancho según tus necesidades */
+}
+
+.carousel-inner img {
+  width: 100%;
+  display: none;
+}
+
+.carousel-inner img.active {
+  display: block;
+}

@@ -1,0 +1,44 @@
+
+$desktopHD-width:  600px;
+
+@mixin mobile {
+  @media (max-width: #{$desktopHD-width - 1px}) {
+    @content;
+  }
+}
+
+mat-sidenav-container {
+  width: 100%;
+  display: contents !important;
+}
+
+.example-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.mat-drawer-inner-container { 
+  overflow: hidden !important;
+}
+
+.router{
+  left: 60px;
+  right: 60px;
+}
+
+ .matS{
+   margin-left: 220px;
+
+   @include mobile() {
+    margin-left: 0px !important;
+  }
+
+ }
+
+mat-sidenav{
+  //transform: rotate(45deg) !important;
+}
+

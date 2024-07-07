@@ -1,0 +1,59 @@
+
+<div class="bg">
+  <div id="main" fxLayout="row">
+    <div
+      class="login"
+      fxLayout="column"
+      fxLayoutAlign="center center"
+      fxFlex.xs="100vw"
+      fxFlex.sm="100vw"
+      fxFlex.md="45vw"
+      fxFlex.lg="40vw"
+    >
+      <div class="login-form">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <h4 class="title">{{ AppName }} | Login</h4>
+          <mat-form-field class="field">
+            <mat-label for="email">Email</mat-label>
+            <input
+              matInput
+              type="email"
+              id="email"
+              formControlName="email"
+              required
+            />
+            <mat-error *ngIf="loginForm.controls['email'].invalid">{{
+              getErrorMessage("email")
+            }}</mat-error>
+          </mat-form-field>
+          <mat-form-field class="field">
+            <mat-label>Password</mat-label>
+            <input
+              appearance="legacy"
+              mat
+              matInput
+              type="password"
+              id="password"
+              formControlName="password"
+              required
+            />
+            <mat-error *ngIf="loginForm.controls['password'].invalid">{{
+              getErrorMessage("password")
+            }}</mat-error>
+          </mat-form-field>
+          <div>
+            <button mat-button class="submit" color="primary">
+              lOGIN
+            </button>
+          </div>
+          
+        </form>
+        <div class="forgotPass">
+          <button mat-button style="color: #fff" (click)="register()">
+            SIGN UP<mat-icon>arrow_right_alt</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

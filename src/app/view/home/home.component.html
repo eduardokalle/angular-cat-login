@@ -1,0 +1,22 @@
+<title>{{ AppName }} | Home</title>
+
+<mat-sidenav-container class="example-container">
+  <!-- Side navigation -->
+  <mat-sidenav
+    #snav
+    [mode]="currentScreenWidth < 600 ? 'over' : 'side'"
+    [opened]="currentScreenWidth < 600 ? 'false' : 'true'"
+    [ngStyle]="{ 'width.em': currentScreenWidth < 6 ? 4 : sidenavWidth }"
+    style="background-color: #151038"
+  >
+    <app-sidenav></app-sidenav>
+  </mat-sidenav>
+  <mat-sidenav-content class="matS">
+    <app-topmenu
+      *ngIf="currentScreenWidth < 600 ? true : false"
+      (sidenavToggle)="snav.toggle()"
+    ></app-topmenu>
+    <!--Content-->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

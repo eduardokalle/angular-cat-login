@@ -1,0 +1,56 @@
+<mat-nav-list>
+  <div class="space"></div>
+  <div [ngClass]="{ img: currentScreenWidth > 600 }" >
+    <div class="imgIcon">
+      <img src= '../../../assets/user.png' width="85px" alt="logo" />
+    </div>
+  </div>
+  
+  <div class="space">
+    <div class="line"></div>
+  </div>
+
+  <div class="space2">
+    <div class="line2"></div>
+  </div>
+  <div
+    [ngClass]="{
+      menu1: screenHeight <= 500,
+      menu2:
+        currentScreenWidth < 600
+          ? false
+          : screenHeight > 500 && screenHeight <= 600,
+      menu3:
+        currentScreenWidth < 600
+          ? false
+          : screenHeight > 600 && screenHeight <= 700,
+      menu4:
+        currentScreenWidth < 600
+          ? false
+          : screenHeight > 700 && screenHeight <= 800,
+      menu5: currentScreenWidth < 600 ? true : screenHeight > 800
+    }"
+  >
+    
+
+      <mat-list-item role="listitem" class="icon" routerLink="/profile-user">
+        <mat-icon matListItemIcon>perm_identity</mat-icon> 
+        <p mat-line>{{ "Profile" }}</p>
+      </mat-list-item>
+
+      <mat-list-item role="listitem" class="icon" routerLink="/list-cat">
+        <mat-icon matListItemIcon>layers</mat-icon> 
+        <p mat-line>{{ "List cat" }}</p>
+      </mat-list-item>
+
+      <mat-list-item role="listitem" class="icon" routerLink="/table-list-cat">
+        <mat-icon matListItemIcon>grid_on</mat-icon> 
+        <p mat-line>{{ "List table cat" }}</p>
+      </mat-list-item>
+
+      <mat-list-item role="listitem" class="icon" (click)="logOut()">
+        <mat-icon matListItemIcon>power_settings_new</mat-icon> 
+        <p mat-line>{{ "Cerrar sesión" }}</p>
+      </mat-list-item>
+  </div>
+</mat-nav-list>

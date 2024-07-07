@@ -1,0 +1,49 @@
+<mat-toolbar>
+   <span>List Cat</span>
+ </mat-toolbar>
+
+ <div class="content">
+   <div  class="conten-btn">
+
+   <mat-form-field  style="width: 300px !important">
+      <form [formGroup]="FormGroup">
+         <mat-form-field>
+            <mat-label>Types cats</mat-label>
+            <mat-select matInput placeholder="List breeds cats" formControlName="list" (selectionChange)="onSelectionChange($event)">
+               @for (item of getListCatsALL; track item) {
+               <mat-option  value="{{item.id}}">Name: {{item.name}}</mat-option >
+               }  
+            </mat-select>
+         </mat-form-field>
+      </form>
+   </mat-form-field>
+   
+   </div>  
+   
+   
+   <div class="carousel" *ngIf="visibleCard == true">
+      <button  mat-button  (click)="previous()">
+         <mat-icon>arrow_back</mat-icon>
+      </button>
+      <div class="carousel-inner">
+         <img *ngFor="let image of ListCatsSelectIMG; let i = index" [src]="image?.url" [class.active]="i === currentIndex">
+      </div>
+      <button mat-button (click)="next()">
+         <mat-icon>arrow_forward</mat-icon>
+      </button>
+   </div>
+   <div style="height: 25px;"></div>
+   <mat-card *ngIf="visibleCard == true" appearance="outlined" >
+      <mat-card-header>
+        <mat-card-title>Name : {{ListCatsSelect?.name}}</mat-card-title>
+        <br>
+        <mat-card-subtitle>origin : {{ListCatsSelect?.origin}}</mat-card-subtitle>
+        <mat-card-subtitle>life span : {{ListCatsSelect?.life_span}}</mat-card-subtitle>
+        <mat-card-subtitle>stranger friendly : {{ListCatsSelect?.stranger_friendly}}</mat-card-subtitle>
+        <mat-card-subtitle>hypoallergenic : {{ListCatsSelect?.hypoallergenic}}</mat-card-subtitle>
+        <mat-card-subtitle>affection level : {{ListCatsSelect?.affection_level}}</mat-card-subtitle>
+        <mat-card-subtitle>child friendly : {{ListCatsSelect?.child_friendly}}</mat-card-subtitle>
+        <mat-card-subtitle>description : {{ListCatsSelect?.description}}</mat-card-subtitle>
+      </mat-card-header>
+   </mat-card>
+</div>

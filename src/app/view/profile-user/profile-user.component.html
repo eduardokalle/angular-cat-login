@@ -1,0 +1,45 @@
+
+   <div style="margin-left: 200px;"></div>
+   <form class="form shadow m-3 p-3"  [formGroup]="userForm" (ngSubmit)="onSubmit()">
+       <h1>You profile</h1>
+      
+       <div class="row mt-3">
+           <mat-form-field class="col-md-6">
+               <mat-label>Email</mat-label>
+               <input matInput formControlName="email" placeholder="Insert email">
+               @if (userForm.controls['email'].errors) {
+                <mat-error >Email  is required</mat-error>
+               } 
+           </mat-form-field>
+       </div>
+       <div class="row mt-3">
+           <mat-form-field class="col-md-6">
+               <mat-label>Name</mat-label>
+               <input matInput formControlName="username" placeholder="Insert Name">
+               @if (userForm.controls['username'].errors) {
+                <mat-error >Name is required</mat-error>
+               } 
+           </mat-form-field>
+       </div>
+       <div  class="row mt-3">
+            <mat-form-field class="col-md-6">
+                <mat-label>Lastname</mat-label>
+                <input matInput formControlName="userlastname" placeholder="Insert lastname">
+                @if (userForm.controls['userlastname'].errors) {
+                    <mat-error >lastname is require</mat-error>
+                   } 
+            </mat-form-field>
+       </div>
+       <div class="row mt-3">
+        <mat-form-field class="col-md-6">
+            <mat-label>Phone</mat-label>
+            <input  matInput formControlName="phone" placeholder="Insert Phone">
+            @if (userForm.controls['phone'].errors) {
+                <mat-error >Telefono  is required</mat-error>
+               } 
+        </mat-form-field>
+        </div>
+       <!-- <div class="row mt-3">
+           <button type="submit" mat-raised-button color="primary" class="m-2" style="width: 120px;" [disabled]="!userForm.valid">Guardar</button>
+       </div> -->
+   </form> 

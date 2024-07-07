@@ -1,0 +1,114 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+
+@use '@angular/material' as mat;
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+// Plus imports for other components in your app.
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic&subset=latin-ext");
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic&amp;subset=latin-ext");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+$general-typography: mat.define-typography-config(
+  $font-family: "Roboto, sans-serif",
+  $body-2: mat.define-typography-level(14px, 24px, 600),
+);
+
+$secondary-typography: mat.define-typography-config(
+  $font-family: '"Open Sans", "Helvetica Neue", sans-serif',
+);
+
+$md-mcgtestfe: (
+  50: #ede5f0,
+  100: #d1bed9,
+  200: #b392c0,
+  300: #F24472,
+  400: #F24472,
+  500: #F24472,
+  600: #F24472,
+  700: #F24472,
+  800: #F24472,
+  900: #F24472,
+  A100: #fad7b6,
+  A200: #f7bc85,
+  A400: #f18d30,
+  A700: #eb6608,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #000000,
+    900: #000000,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$test-fe-primary: mat.define-palette($md-mcgtestfe);
+$test-fe-accent: mat.define-palette($md-mcgtestfe, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$test-fe-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$test-fe-theme: mat.define-light-theme((
+  color: (
+    primary: $test-fe-primary,
+    accent: $test-fe-accent,
+    warn: $test-fe-warn,
+  )
+  // typography: $general-typography,
+  // density:0,
+));
+
+@include mat.core-theme($test-fe-theme);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($test-fe-theme);
+
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+
+
+/* You can add global styles to this file, and also import other style files */
+
+body,
+html {
+  margin: 0px !important;
+  padding: 0px !important;
+  font-family: "Roboto";
+  height: 100%;
+}
+
+
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
